@@ -9,7 +9,6 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 L'output va stampato nella pagina HTML.*/
 
-
 //chiedi numero chilometri da percorrere
 const distance = parseInt(prompt("scrivi i chilometri che devi percorrere"));
 console.log (distance)
@@ -42,3 +41,15 @@ console.log(o65price);
 //Se l'età è minore di 18 anni stampiamo u18price in html 
 //Se l'età è superiore a 65 anni stampiamo o65price in html 
 //altrimenti stampiamo price
+let resultMessage;
+if (età < 18) {
+    resultMessage = u18price;
+} else if (età >= 65){
+    resultMessage = o65price ;
+} else {
+    resultMessage = price;
+}
+
+console.log(resultMessage);
+
+document.getElementById('result').innerHTML = "Il prezzo del suo biglietto è " + resultMessage + " euro";
