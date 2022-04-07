@@ -13,8 +13,8 @@ L'output va stampato nella pagina HTML.*/
 const distance = parseInt(prompt("scrivi i chilometri che devi percorrere"));
 console.log (distance)
 //chiedi l'età dal passeggero
-const età = parseInt(prompt ("scrivi l'età del passeggero"));
-console.log (età)
+const age = parseInt(prompt ("scrivi l'età del passeggero"));
+console.log (age)
 
 //calcola prezzo del biglietto sconti esclusi
 const price = distance * 0.21;
@@ -36,20 +36,21 @@ console.log(o65discount);
 const o65price = price - o65discount;
 console.log(o65price);
 
-//trasforma il risultato in prezzo con due decimali 
-
-//Se l'età è minore di 18 anni stampiamo u18price in html 
-//Se l'età è superiore a 65 anni stampiamo o65price in html 
-//altrimenti stampiamo price
-let resultMessage;
-if (età < 18) {
-    resultMessage = u18price;
-} else if (età >= 65){
-    resultMessage = o65price ;
+//Se l'età è minore di 18 anni il prezzo finale corrisponde a u18price
+//Se l'età è superiore a 65 anni il prezzo finale corrisponde a o65price
+//altrimenti il prezzo finale corrisponde a price
+let finalprice;
+if (age < 18) {
+    finalprice = u18price;
+} else if (age >= 65){
+    finalprice = o65price ;
 } else {
-    resultMessage = price;
+    finalprice = price;
 }
 
-console.log(resultMessage);
+console.log(finalprice);
 
-document.getElementById('result').innerHTML = "Il prezzo del suo biglietto è " + resultMessage + " euro";
+//stampa il risultato con due decimali 
+const num = finalprice;
+const n = num.toFixed(2);
+document.getElementById('result').innerHTML = "Il prezzo del suo biglietto è " + n + " euro"
