@@ -18,13 +18,27 @@ const età = parseInt(prompt ("scrivi l'età del passeggero"));
 console.log (età)
 
 //calcola prezzo del biglietto sconti esclusi
+const price = distance * 0.21;
+console.log(price);
 
 //calcola sconto under 18
-//applica sconto under 18
+const u18discount = (price * 20 ) / 100;
+console.log(u18discount);
 
-//calcola sconto over 65 
+//applica sconto under 18
+const u18price = price - u18discount;
+console.log(u18price);
+
+//calcola sconto over 65
+const o65discount = (price * 40 ) / 100;
+console.log(o65discount);
+
 //applica sconto over 65
+const o65price = price - o65discount;
+console.log(o65price);
 
 //trasforma il risultato in prezzo con due decimali 
 
-//stampa il risultato in html
+//Se l'età è minore di 18 anni stampiamo u18price in html 
+//Se l'età è superiore a 65 anni stampiamo o65price in html 
+//altrimenti stampiamo price
