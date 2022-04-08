@@ -20,30 +20,18 @@ console.log (age)
 const price = distance * 0.21;
 console.log(price);
 
-//calcola sconto under 18
-const u18discount = (price * 20 ) / 100;
-console.log(u18discount);
-
-//applica sconto under 18
-const u18price = price - u18discount;
-console.log(u18price);
-
-//calcola sconto over 65
-const o65discount = (price * 40 ) / 100;
-console.log(o65discount);
-
-//applica sconto over 65
-const o65price = price - o65discount;
-console.log(o65price);
-
 //Se l'età è minore di 18 anni il prezzo finale corrisponde a u18price
 //Se l'età è superiore a 65 anni il prezzo finale corrisponde a o65price
 //altrimenti il prezzo finale corrisponde a price
 let finalprice;
 if (age < 18) {
-    finalprice = u18price;
+    const u18discount = (price * 20 ) / 100;
+    console.log(u18discount);
+    finalprice = price - u18discount;
 } else if (age >= 65){
-    finalprice = o65price ;
+    const o65discount = (price * 40 ) / 100;
+    console.log(o65discount);
+    finalprice = price - o65discount;
 } else {
     finalprice = price;
 }
@@ -51,6 +39,5 @@ if (age < 18) {
 console.log(finalprice);
 
 //stampa il risultato con due decimali 
-const num = finalprice;
-const n = num.toFixed(2);
+const n = finalprice.toFixed(2);
 document.getElementById('result').innerHTML = "Il prezzo del suo biglietto è " + n + " euro"
